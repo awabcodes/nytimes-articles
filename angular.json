@@ -126,5 +126,8 @@
       }
     }
   },
-  "defaultProject": "nytimes-popular-articles"
+  "defaultProject": "nytimes-popular-articles",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
