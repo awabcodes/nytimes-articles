@@ -1,1 +1,37 @@
-<p>home works!</p>
+<h3 class="text-center mt-2">The New York Times seeks the truth and helps people understand the world.</h3>
+
+<div class="row">
+  <div class="col m-3">
+    <mat-card class="section-card">
+      <img mat-card-image src="assets/images/world.svg" alt="Photo world map">
+      <mat-card-title>World</mat-card-title>
+      <mat-card-content>
+        <p>
+          Explore the wonderful world we live in
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" [routerLink]="'articles/list'">
+          <mat-icon>link</mat-icon> View
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="col m-3">
+    <mat-card class="section-card">
+      <img mat-card-image src="assets/images/science.svg" alt="Photo science">
+      <mat-card-title>Science</mat-card-title>
+      <mat-card-content>
+        <p>
+          Interesting scientific articles from well trusted puplishers
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" [routerLink]="'articles/list'">
+          <mat-icon>link</mat-icon> View
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-subtitle>{{ article.published_date | date: 'medium' }}</mat-card-subtitle>
+    <mat-card-title>{{ article.title }}</mat-card-title>
+    <mat-card-subtitle>{{ article.byline }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{ article.abstract }}
+    </p>
+  </mat-card-content>
+
+  <mat-chip-list>
+    <mat-chip color="primary" selected="true" *ngFor="let facet of article.des_facet">{{ facet }}</mat-chip>
+  </mat-chip-list>
+</mat-card>

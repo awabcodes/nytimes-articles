@@ -1,4 +1,9 @@
 .footer {
-  width: 100%;
-  text-align: center;
+  position: sticky;
+  top: calc(100vh - 64px);
+
+  .footer-content {
+    width: 100%;
+    text-align: center;
+  }
 }
