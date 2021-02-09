@@ -11,9 +11,9 @@ import { map } from 'rxjs/operators';
 })
 export class ArticleService {
 
-  searchUrl = 'https://api.nytimes.com/svc/search/v2/articlesearch.json'
-  topStoriesUrl = 'https://api.nytimes.com/svc/topstories/v2/';
-  communityUrl = 'https://api.nytimes.com/svc/community/v3/user-content/url.json';
+  searchUrl = 'http://localhost:4200/api/search/v2/articlesearch.json'
+  topStoriesUrl = 'http://localhost:4200/api/topstories/v2/';
+  communityUrl = 'http://localhost:4200/api/community/v3/user-content/url.json';
 
   constructor(private http: HttpClient) { }
 
@@ -32,6 +32,6 @@ export class ArticleService {
   getArticleComments(articleUrl: string): Observable<Comment[]> {
     const options = createRequestOption({ 'api-key': environment.nyTimesApiKey, url: articleUrl });
     return this.http.get<any>(this.communityUrl, { params: options })
-      .pipe(map(response => response.results));
+      .pipe(map(response => response.results.comments));
   }
 }
