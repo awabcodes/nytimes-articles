@@ -4,6 +4,8 @@
     <span class="menu-spacer"></span>
     <div>
       <button mat-button [routerLink]="'/'"> Home </button>
+      <button mat-button [routerLink]="'articles/list'" [queryParams]="{section: 'world'}"> World </button>
+      <button mat-button [routerLink]="'articles/list'" [queryParams]="{section: 'science'}"> Science </button>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

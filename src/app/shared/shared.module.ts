@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatRippleModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent],
@@ -18,7 +19,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatChipsModule
+    MatChipsModule,
+    MatRippleModule
   ],
   exports: [
     HeaderComponent,
@@ -27,7 +29,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatChipsModule
+    MatChipsModule,
+    MatRippleModule
   ]
 })
 export class SharedModule { }

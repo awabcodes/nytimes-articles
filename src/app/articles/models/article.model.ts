@@ -1,4 +1,4 @@
-import { Multimedia } from "./multimedia.model";
+import { Multimedia } from './multimedia.model';
 
 export interface Article {
     section: string;
