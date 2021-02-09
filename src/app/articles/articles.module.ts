@@ -6,6 +6,10 @@ import { ArticleListComponent } from './components/article-list/article-list.com
 import { ArticleDetailComponent } from './components/article-detail/article-detail.component';
 import { SharedModule } from '../shared/shared.module';
 import { ArticleCardComponent } from './components/article-card/article-card.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { ArticleEffects } from './state/article.effects';
+import * as fromArticle from './state/article.reducer';
 
 
 @NgModule({
@@ -13,7 +17,9 @@ import { ArticleCardComponent } from './components/article-card/article-card.com
   imports: [
     CommonModule,
     ArticlesRoutingModule,
-    SharedModule
+    SharedModule,
+    StoreModule.forFeature(fromArticle.articleFeatureKey, fromArticle.reducer),
+    EffectsModule.forFeature([ArticleEffects])
   ]
 })
 export class ArticlesModule { }
