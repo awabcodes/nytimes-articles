@@ -23,3 +23,18 @@ export const loadArticle = createAction(
   '[Article Detail Component] Load Article',
   props<{ article: Article }>()
 );
+
+export const loadArticleComments = createAction(
+  '[Article Detail Component] Load Article Comments',
+  props<{ articleUrl: string }>()
+);
+
+export const loadArticleCommentsSuccess = createAction(
+  '[Article Effect] Load Article Comments Success',
+  props<{ comments: Comment[] }>()
+);
+
+export const loadArticleCommentsFailure = createAction(
+  '[Article Effect] Load Article Comments Failure',
+  props<{ error: any }>()
+);

@@ -35,6 +35,20 @@ export class ArticleEffects {
     )
   );
 
+  loadArticleComments$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ArticleActions.loadArticleComments),
+      mergeMap((action) =>
+        this.articleService.getArticleComments(action.articleUrl).pipe(
+          map(comments => ArticleActions.loadArticleCommentsSuccess({ comments })),
+          catchError(error =>
+            of(ArticleActions.loadArticleCommentsFailure({ error }))
+          )
+        )
+      )
+    )
+  );
+
   constructor(
     private actions$: Actions,
     private articleService: ArticleService

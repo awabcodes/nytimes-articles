@@ -25,3 +25,8 @@ export const selectEntityById = createSelector(
     selectAllEntities,
     (entities, props) => entities[props.id]
 );
+
+export const selectArticleComments = createSelector(
+    selectArticlesState,
+    (state: ArticleReducer.State) => state.articleComments
+);

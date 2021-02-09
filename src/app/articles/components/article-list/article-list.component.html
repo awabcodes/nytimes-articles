@@ -1,7 +1,8 @@
 <div class="container-fluid">
   <div class="row" *ngFor="let article of articles$ | async">
     <div class="col m-4">
-      <app-article-card [article]="article" [routerLink]="['/articles/detail', article.uri]"></app-article-card>
+      <app-article-card [article]="article" [routerLink]="'/articles/detail'" [queryParams]="{url: article.url}">
+      </app-article-card>
     </div>
   </div>
 </div>
