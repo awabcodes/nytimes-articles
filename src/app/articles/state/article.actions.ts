@@ -1,12 +1,9 @@
 import { createAction, props } from '@ngrx/store';
 import { Article } from '../models/article.model';
 
-export const loadWorldArticles = createAction(
-  '[Article List Component] Load World Articles'
-);
-
-export const loadScienceArticles = createAction(
-  '[Article List Component] Load Science Articles'
+export const loadArticles = createAction(
+  '[Article List Component] Load Articles',
+  props<{ section: string }>()
 );
 
 export const loadArticlesSuccess = createAction(

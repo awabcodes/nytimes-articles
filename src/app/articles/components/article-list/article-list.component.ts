@@ -27,11 +27,7 @@ export class ArticleListComponent implements OnInit {
   }
 
   loadArticles(section: string) {
-    if (section === 'world') {
-      this.store.dispatch(ArticleActions.loadWorldArticles());
-    } else {
-      this.store.dispatch(ArticleActions.loadScienceArticles());
-    }
+    this.store.dispatch(ArticleActions.loadArticles({ section }));
 
     this.articles$ = this.store.pipe(select(ArticleSelector.selectAllArticles));
   }

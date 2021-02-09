@@ -9,23 +9,9 @@ import { ArticleService } from '../services/article.service';
 export class ArticleEffects {
   loadWorldArticles$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(ArticleActions.loadWorldArticles),
-      mergeMap(() =>
-        this.articleService.getArticlesBySection('world').pipe(
-          map(articles => ArticleActions.loadArticlesSuccess({ articles })),
-          catchError(error =>
-            of(ArticleActions.loadArticlesFailure({ error }))
-          )
-        )
-      )
-    )
-  );
-
-  loadScienceArticles$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(ArticleActions.loadScienceArticles),
-      mergeMap(() =>
-        this.articleService.getArticlesBySection('science').pipe(
+      ofType(ArticleActions.loadArticles),
+      mergeMap((action) =>
+        this.articleService.getArticlesBySection(action.section).pipe(
           map(articles => ArticleActions.loadArticlesSuccess({ articles })),
           catchError(error =>
             of(ArticleActions.loadArticlesFailure({ error }))
