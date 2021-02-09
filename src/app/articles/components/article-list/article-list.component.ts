@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Article } from '../../models/article.model';
-import { ArticleService } from '../../services/article.service';
+import { ActivatedRoute } from '@angular/router';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { AppState } from 'src/app/state';
+import { Article } from '../../models/article.model';;
+import * as ArticleActions from '../../state/article.actions'
+import * as ArticleSelector from '../../state/article.selectors';
 
 @Component({
   templateUrl: './article-list.component.html',
@@ -8,19 +13,27 @@ import { ArticleService } from '../../services/article.service';
 })
 export class ArticleListComponent implements OnInit {
 
-  articles: Article[];
+  articles$: Observable<Article[]>;
 
   constructor(
-    private articleService: ArticleService
-  ) {
-    this.articles = [];
-  }
+    private activeRoute: ActivatedRoute,
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit(): void {
-    this.articleService.getArticlesBySection('world').subscribe({
-      next: response => this.articles = response,
-      error: err => console.log(err)
+    this.activeRoute.queryParams.subscribe({
+      next: queryParams => this.loadArticles(queryParams.section)
     });
+  }
+
+  loadArticles(section: string) {
+    if (section === 'world') {
+      this.store.dispatch(ArticleActions.loadWorldArticles());
+    } else {
+      this.store.dispatch(ArticleActions.loadScienceArticles());
+    }
+
+    this.articles$ = this.store.pipe(select(ArticleSelector.selectAllArticles));
   }
 
 }

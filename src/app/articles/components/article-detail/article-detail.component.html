@@ -1,1 +1,30 @@
-<p>article-detail works!</p>
+<div class="row justify-content-center mb-5">
+  <div class="col-12 mt-4" *ngIf="article$ | async as article">
+    <div class="row mt-4">
+      <div class="col">
+        <mat-card>
+          <div class="row mb-4">
+            <div class="col">
+              <img style="width: 100%;" [src]="article.multimedia[0].url">
+            </div>
+          </div>
+          <mat-card-header>
+            <mat-card-subtitle>{{ article.published_date | date: 'medium' }}</mat-card-subtitle>
+            <mat-card-title>{{ article.title }}</mat-card-title>
+            <mat-card-subtitle>{{ article.byline }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{ article.abstract }}
+            </p>
+          </mat-card-content>
+
+          <mat-chip-list>
+            <mat-chip color="primary" selected="true" *ngFor="let facet of article.des_facet">{{ facet }}</mat-chip>
+          </mat-chip-list>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+</div>
