@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 /**
  * Main App Component
@@ -10,4 +11,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'nytimes-popular-articles';
+
+  /**
+   * @param spinner spinner service responsible for loading
+   */
+  constructor(private spinner: NgxSpinnerService) { }
 }

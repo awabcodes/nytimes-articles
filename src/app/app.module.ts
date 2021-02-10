@@ -12,9 +12,11 @@ import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { reducers, metaReducers } from './state';
-import { AppEffects } from './state/app.effects';
+import { AppEffects } from './state/effects/app.effects';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AuthExpiredInterceptor } from './interceptors/auth-expired.interceptor';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { SpinnerEffects } from './state/effects/spinner.effects';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { AuthExpiredInterceptor } from './interceptors/auth-expired.interceptor'
     }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([AppEffects])
+    EffectsModule.forRoot([AppEffects, SpinnerEffects]),
+    NgxSpinnerModule
   ],
   providers: [
     {
