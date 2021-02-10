@@ -9,7 +9,7 @@ import { ArticleSearchResponse } from '../models/article-search.model';
 
 
 /**
- * Responsiple for consuming with the NY Times API
+ * Responsible for consuming with the NY Times API
  */
 @Injectable({
   providedIn: 'root'

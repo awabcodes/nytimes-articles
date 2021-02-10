@@ -60,7 +60,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/auth/components/login/login.component.ts</code>
+            <code>src/app/auth/components/register/register.component.ts</code>
         </p>
 
             <p class="comment">
@@ -138,7 +138,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/auth/components/login/login.component.ts:12</a></div>
+                            class="link-to-prism">src/app/auth/components/register/register.component.ts:12</a></div>
                 </td>
             </tr>
 
@@ -225,14 +225,13 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 
 /**
- * Login Page
+ * Registraion Page
  */
 @Component({
-  templateUrl: &#x27;./login.component.html&#x27;,
-  styleUrls: [&#x27;./login.component.scss&#x27;]
+  templateUrl: &#x27;./register.component.html&#x27;,
+  styleUrls: [&#x27;./register.component.scss&#x27;]
 })
-export class LoginComponent implements OnInit {
-
+export class RegisterComponent implements OnInit {
   emailFormControl &#x3D; new FormControl(&#x27;&#x27;, [
     Validators.required,
     Validators.email,
@@ -254,10 +253,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  /** Auth login */
+  /** Auth register */
   submit() {
     const credentials: Auth &#x3D; { email: this.emailFormControl.value, password: this.passwordFormControl.value };
-    this.store.dispatch(AuthActions.login({ credentials }));
+    this.store.dispatch(AuthActions.register({ credentials }));
   }
 
 }

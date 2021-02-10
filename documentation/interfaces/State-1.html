@@ -61,17 +61,23 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/auth/state/auth.reducer.ts</code>
+            <code>src/app/articles/state/article.reducer.ts</code>
         </p>
 
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>auth module state interface </p>
+                <p>articles module state interface </p>
 
             </p>
 
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                    <code>EntityState</code>
+            </p>
 
         <section>
             <h3 id="index">Index</h3>
@@ -86,13 +92,19 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#accessToken">accessToken</a>
-                                </li>
-                                <li>
-                                        <a href="#email">email</a>
+                                        <a href="#articleComments">articleComments</a>
                                 </li>
                                 <li>
                                         <a href="#error">error</a>
+                                </li>
+                                <li>
+                                        <a href="#searchHistory">searchHistory</a>
+                                </li>
+                                <li>
+                                        <a href="#searchResult">searchResult</a>
+                                </li>
+                                <li>
+                                        <a href="#searchResultMeta">searchResultMeta</a>
                                 </li>
                             </ul>
                         </td>
@@ -109,13 +121,13 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="accessToken"></a>
-                                        <span class="name"><b>accessToken</b><a href="#accessToken"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="articleComments"></a>
+                                        <span class="name"><b>articleComments</b><a href="#articleComments"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>accessToken:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>articleComments:         <code><a href="../interfaces/Comment.html" target="_self" >Comment</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -123,7 +135,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>        <code><a href="../interfaces/Comment.html" target="_self" >Comment</a></code>
 
                                         </td>
                                     </tr>
@@ -134,42 +146,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>auth state user&#39;s access token </p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="email"></a>
-                                        <span class="name"><b>email</b><a href="#email"><span class="icon ion-ios-link"></span></a></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>email:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>auth state user&#39;s email </p>
+                                    <div class="io-description"><p>article comments </p>
 </div>
                                 </td>
                             </tr>
@@ -204,7 +181,112 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>auth state error </p>
+                                    <div class="io-description"><p>articles state error </p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="searchHistory"></a>
+                                        <span class="name"><b>searchHistory</b><a href="#searchHistory"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>searchHistory:     <code>string[]</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string[]</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>last 5 search terms </p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="searchResult"></a>
+                                        <span class="name"><b>searchResult</b><a href="#searchResult"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>searchResult:     <code>ArticleSearch[]</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>ArticleSearch[]</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>articles search result </p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="searchResultMeta"></a>
+                                        <span class="name"><b>searchResultMeta</b><a href="#searchResultMeta"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>searchResultMeta:         <code><a href="../interfaces/ArticleSearchMeta.html" target="_self" >ArticleSearchMeta</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/ArticleSearchMeta.html" target="_self" >ArticleSearchMeta</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>articles search result meta info </p>
 </div>
                                 </td>
                             </tr>
@@ -219,39 +301,73 @@
   createReducer,
   on
 } from &#x27;@ngrx/store&#x27;;
-import * as AuthActions from &#x27;./auth.actions&#x27;;
+import { EntityState, EntityAdapter, createEntityAdapter } from &#x27;@ngrx/entity&#x27;;
+import { Article } from &#x27;../models/article.model&#x27;;
+import * as ArticleActions from &#x27;./article.actions&#x27;;
+import { ArticleSearch, ArticleSearchMeta } from &#x27;../models/article-search.model&#x27;;
 
-/** auth module state key */
-export const authFeatureKey &#x3D; &#x27;auth&#x27;;
+/** articles module state key */
+export const articleFeatureKey &#x3D; &#x27;articles&#x27;;
 
-/** auth module state interface */
-export interface State {
-  /** auth state user&#x27;s email */
-  email: string;
+/** articles module state interface */
+export interface State extends EntityState&lt;Article&gt; {
+  /** article comments */
+  articleComments: Comment;
 
-  /** auth state user&#x27;s access token */
-  accessToken: string;
+  /** last 5 search terms */
+  searchHistory: string[];
 
-  /** auth state error */
+  /** articles search result */
+  searchResult: ArticleSearch[];
+
+  /** articles search result meta info */
+  searchResultMeta: ArticleSearchMeta;
+
+  /** articles state error */
   error: any;
 }
 
-/** auth module initial state */
-export const initialState: State &#x3D; {
-  email: null,
-  accessToken: null,
-  error: null,
-};
+/** articles module entity adapter */
+export const adapter: EntityAdapter&lt;Article&gt; &#x3D; createEntityAdapter&lt;Article&gt;({
+  selectId: (article: Article) &#x3D;&gt; article.url,
+});
 
-/** auth module reducers responsible for state manipulation*/
+/** articles module initial state */
+export const initialState &#x3D; adapter.getInitialState({
+  articleComments: null,
+  searchHistory: [],
+  searchResult: null,
+  searchResultMeta: null,
+  error: null
+});
+
+/** articles module reducers responsible for state manipulation */
 export const reducer &#x3D; createReducer(
   initialState,
-  on(AuthActions.loginSuccess, (state, action) &#x3D;&gt; ({ ...state, accessToken: action.token.access_token })),
-  on(AuthActions.loginFailure, (state, action) &#x3D;&gt; ({ ...state, error: action.error })),
-  on(AuthActions.registerSuccess, (state, action) &#x3D;&gt; ({ ...state, accessToken: action.token.access_token })),
-  on(AuthActions.registerFailure, (state, action) &#x3D;&gt; ({ ...state, error: action.error })),
-  on(AuthActions.logout, (state, action) &#x3D;&gt; ({ ...state, accessToken: null }))
-);</code></pre>
+  on(ArticleActions.loadArticlesSuccess, (state, action) &#x3D;&gt; adapter.setAll(action.articles, state)),
+  on(ArticleActions.loadArticlesFailure, (state, action) &#x3D;&gt; ({ ...state, error: action.error })),
+  on(ArticleActions.loadArticleCommentsSuccess, (state, action) &#x3D;&gt; ({ ...state, articleComments: action.comments })),
+  on(ArticleActions.loadArticleCommentsFailure, (state, action) &#x3D;&gt; ({ ...state, error: action.error })),
+  on(ArticleActions.searchArticle, (state, action) &#x3D;&gt; ({
+    ...state,
+    searchHistory: state.searchHistory.length &lt; 5 &amp;&amp; !state.searchHistory.includes(action.query)
+      ? [...state.searchHistory, action.query]
+      : [...state.searchHistory]
+  })),
+  on(ArticleActions.searchArticlesSuccess, (state, action) &#x3D;&gt; ({
+    ...state, searchResult: action.articleSearch.docs, searchResultMeta: action.articleSearch.meta
+  })),
+  on(ArticleActions.searchArticlesFailure, (state, action) &#x3D;&gt; ({ ...state, error: action.error })),
+);
+
+/** entity adapter selectors */
+export const {
+  selectIds,
+  selectEntities,
+  selectAll,
+  selectTotal,
+} &#x3D; adapter.getSelectors();
+</code></pre>
     </div>
 </div>
 

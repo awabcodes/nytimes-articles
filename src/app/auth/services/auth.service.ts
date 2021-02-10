@@ -6,7 +6,7 @@ import { Auth } from '../models/auth.model';
 
 
 /**
- * Responsiple for sending auth requests to the backend
+ * Responsible for sending auth requests to the backend
  */
 @Injectable({
   providedIn: 'root'
