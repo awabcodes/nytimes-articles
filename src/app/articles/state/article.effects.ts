@@ -35,6 +35,20 @@ export class ArticleEffects {
     )
   );
 
+  searchArticle$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ArticleActions.searchArticle),
+      mergeMap((action) =>
+        this.articleService.searchArticles(action.query, action.page).pipe(
+          map(articleSearch => ArticleActions.searchArticlesSuccess({ articleSearch })),
+          catchError(error =>
+            of(ArticleActions.searchArticlesFailure({ error }))
+          )
+        )
+      )
+    )
+  );
+
   constructor(
     private actions$: Actions,
     private articleService: ArticleService

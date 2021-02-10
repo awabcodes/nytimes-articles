@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { createRequestOption } from 'src/app/shared';
 import { map } from 'rxjs/operators';
+import { ArticleSearchResponse } from '../models/article-search.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +18,10 @@ export class ArticleService {
 
   constructor(private http: HttpClient) { }
 
-  searchArticles(query: string): Observable<Article[]> {
-    const options = createRequestOption({ 'api-key': environment.nyTimesApiKey, q: query });
+  searchArticles(query: string, page?: number): Observable<ArticleSearchResponse> {
+    const options = createRequestOption({ 'api-key': environment.nyTimesApiKey, q: query, page: page });
     return this.http.get<any>(this.searchUrl, { params: options })
-      .pipe(map(response => response.response.docs));
+      .pipe(map(response => response.response));
   }
 
   getArticlesBySection(section: string): Observable<Article[]> {

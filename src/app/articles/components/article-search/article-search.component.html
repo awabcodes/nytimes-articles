@@ -1,0 +1,38 @@
+  <div class="row justify-content-center mb-5">
+    <div class="col-12 mt-4">
+      <mat-form-field style="width: 90%;">
+        <mat-label>Keyword</mat-label>
+        <input matInput type="text" [formControl]="searchControl">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+      <button class="ml-2" mat-raised-button color="primary" (click)="search()">Search</button>
+    </div>
+    <mat-chip-list>
+      <mat-chip color="primary" selected="true" *ngFor="let query of searchHistory$ | async">{{ query }}</mat-chip>
+    </mat-chip-list>
+  </div>
+
+  <div *ngIf="pagination$ | async as pagination">
+    <div class="container-fluid">
+      <div class="row" *ngFor="let article of articles$ | async">
+        <div class="col m-4">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-subtitle>{{ article.pub_date | date: 'medium' }}</mat-card-subtitle>
+              <mat-card-title>{{ article.headline.main }}</mat-card-title>
+              <mat-card-subtitle>{{ article.byline.original }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>
+                {{ article.abstract }}
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+
+    <mat-paginator #paginator [length]="pagination.hits" [pageIndex]="this.page" [pageSize]="10"
+      (page)="loadNextPage($event)">
+    </mat-paginator>
+  </div>

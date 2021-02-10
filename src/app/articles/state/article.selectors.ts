@@ -30,3 +30,18 @@ export const selectArticleComments = createSelector(
     selectArticlesState,
     (state: ArticleReducer.State) => state.articleComments
 );
+
+export const selectSearchHistory = createSelector(
+    selectArticlesState,
+    (state: ArticleReducer.State) => state.searchHistory
+);
+
+export const selectSearchResult = createSelector(
+    selectArticlesState,
+    (state: ArticleReducer.State) => state.searchResult
+);
+
+export const selectSearchResultMeta = createSelector(
+    selectArticlesState,
+    (state: ArticleReducer.State) => state.searchResultMeta
+);

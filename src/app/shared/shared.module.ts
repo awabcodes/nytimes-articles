@@ -12,6 +12,8 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent],
@@ -26,7 +28,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatRippleModule,
     FlexLayoutModule,
     MatMenuModule,
-    MatDividerModule
+    MatDividerModule,
+    MatInputModule,
+    MatPaginatorModule
   ],
   exports: [
     HeaderComponent,
@@ -39,7 +43,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatRippleModule,
     FlexLayoutModule,
     MatMenuModule,
-    MatDividerModule
+    MatDividerModule,
+    MatInputModule,
+    MatPaginatorModule
   ]
 })
 export class SharedModule { }

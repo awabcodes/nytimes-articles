@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { ArticleSearchResponse } from '../models/article-search.model';
 import { Article } from '../models/article.model';
 
 export const loadArticles = createAction(
@@ -33,5 +34,20 @@ export const loadArticleCommentsSuccess = createAction(
 
 export const loadArticleCommentsFailure = createAction(
   '[Article Effect] Load Article Comments Failure',
+  props<{ error: any }>()
+);
+
+export const searchArticle = createAction(
+  '[Article Search Component] Search Articles',
+  props<{ query: string, page: number }>()
+);
+
+export const searchArticlesSuccess = createAction(
+  '[Article Effect] Search Articles Success',
+  props<{ articleSearch: ArticleSearchResponse }>()
+);
+
+export const searchArticlesFailure = createAction(
+  '[Article Effect] Search Articles Failure',
   props<{ error: any }>()
 );
