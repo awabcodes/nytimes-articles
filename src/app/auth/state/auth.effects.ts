@@ -6,8 +6,14 @@ import * as AuthActions from './auth.actions';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 
+
+/**
+ * Auth module effects
+ */
 @Injectable()
 export class AuthEffects {
+
+  /** side effect for logging in */
   login$ = createEffect(() =>
     this.actions$.pipe(
       ofType(AuthActions.login),
@@ -23,6 +29,7 @@ export class AuthEffects {
     )
   );
 
+  /** side effect for registration */
   register$ = createEffect(() =>
     this.actions$.pipe(
       ofType(AuthActions.register),
@@ -38,6 +45,11 @@ export class AuthEffects {
     )
   );
 
+  /**
+   * @param actions$ the auth actions
+   * @param authService responsible for authentication with the backend
+   * @param router angular router
+   */
   constructor(
     private actions$: Actions,
     private authService: AuthService,

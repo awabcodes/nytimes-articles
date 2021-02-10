@@ -5,8 +5,14 @@ import * as ArticleActions from './article.actions';
 import { of } from 'rxjs';
 import { ArticleService } from '../services/article.service';
 
+
+/**
+ * Articles module effects
+ */
 @Injectable()
 export class ArticleEffects {
+
+  /** side effect for loading articles */
   loadWorldArticles$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ArticleActions.loadArticles),
@@ -21,6 +27,7 @@ export class ArticleEffects {
     )
   );
 
+  /** side effect for loading article comments */
   loadArticleComments$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ArticleActions.loadArticleComments),
@@ -35,6 +42,7 @@ export class ArticleEffects {
     )
   );
 
+  /** side effect for searching articles */
   searchArticle$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ArticleActions.searchArticle),
@@ -49,6 +57,10 @@ export class ArticleEffects {
     )
   );
 
+  /**
+   * @param actions$ the articles actions
+   * @param articleService responsible for getting resources from the backend
+   */
   constructor(
     private actions$: Actions,
     private articleService: ArticleService

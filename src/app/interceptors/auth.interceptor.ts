@@ -6,9 +6,17 @@ import { AppState } from '../state';
 import * as AuthSelector from '../auth/state/auth.selectors'
 import { first, mergeMap } from 'rxjs/operators';
 
+
+/**
+ * Responsible for adding token to request's header
+ */
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
+  /**
+   * @param store the app state
+   * @constructor
+   */
   constructor(private store: Store<AppState>) { }
 
   /**

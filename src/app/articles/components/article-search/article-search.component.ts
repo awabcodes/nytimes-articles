@@ -7,6 +7,10 @@ import { ArticleSearch, ArticleSearchMeta } from '../../models/article-search.mo
 import * as ArticleActions from '../../state/article.actions'
 import * as ArticleSelector from '../../state/article.selectors';
 
+
+/**
+ * Article Search Page
+ */
 @Component({
   templateUrl: './article-search.component.html',
   styleUrls: ['./article-search.component.scss']
@@ -20,6 +24,9 @@ export class ArticleSearchComponent implements OnInit {
   page: number = 0;
   searchControl = new FormControl('', []);
 
+  /**
+   * @param store app state
+   */
   constructor(
     private store: Store<AppState>
   ) { }
@@ -27,6 +34,7 @@ export class ArticleSearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /** Article search with pagination */
   search() {
     this.page = 0;
     this.store.dispatch(ArticleActions.searchArticle({ query: this.searchControl.value, page: this.page }));
@@ -36,6 +44,7 @@ export class ArticleSearchComponent implements OnInit {
     this.searchHistory$ = this.store.pipe(select(ArticleSelector.selectSearchHistory));
   }
 
+  /** Load next page */
   loadNextPage() {
     this.page++;
     this.store.dispatch(ArticleActions.searchArticle({ query: this.searchControl.value, page: this.page }));

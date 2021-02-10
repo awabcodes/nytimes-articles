@@ -5,6 +5,10 @@ import { AppState } from 'src/app/state';
 import * as AuthSelector from '../../../auth/state/auth.selectors';
 import * as AuthActions from '../../../auth/state/auth.actions';
 
+
+/**
+ * Header Component
+ */
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -12,6 +16,7 @@ import * as AuthActions from '../../../auth/state/auth.actions';
 })
 export class HeaderComponent implements OnInit {
 
+  /** header menu items */
   menuItems: MenuItem[] = [
     {
       label: 'Home',
@@ -80,6 +85,9 @@ export class HeaderComponent implements OnInit {
 
   isLoggedIn: boolean;
 
+  /**
+   * @param store app state
+   */
   constructor(
     private store: Store<AppState>
   ) { }
@@ -90,6 +98,9 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  /**
+   * Auth logoout
+   */
   logout() {
     this.store.dispatch(AuthActions.logout());
   }

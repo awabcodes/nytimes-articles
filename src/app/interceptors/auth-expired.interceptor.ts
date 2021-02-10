@@ -6,8 +6,17 @@ import { tap } from 'rxjs/operators';
 import * as AuthActions from '../auth/state/auth.actions';
 import { AppState } from '../state';
 
+
+/**
+ * Responsible for detecting 401 error
+ */
 @Injectable()
 export class AuthExpiredInterceptor implements HttpInterceptor {
+
+  /**
+   * @param store the app state
+   * @constructor
+   */
   constructor(private store: Store<AppState>) { }
 
   /**

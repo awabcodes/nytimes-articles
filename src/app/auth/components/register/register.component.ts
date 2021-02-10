@@ -15,6 +15,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 
+/**
+ * Registraion Page
+ */
 @Component({
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
@@ -31,6 +34,9 @@ export class RegisterComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
+  /**
+   * @param store app state
+   */
   constructor(
     private store: Store<AppState>
   ) { }
@@ -38,6 +44,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /** Auth register */
   submit() {
     const credentials: Auth = { email: this.emailFormControl.value, password: this.passwordFormControl.value };
     this.store.dispatch(AuthActions.register({ credentials }));

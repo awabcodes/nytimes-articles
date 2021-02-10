@@ -15,6 +15,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 
+/**
+ * Login Page
+ */
 @Component({
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
@@ -32,6 +35,9 @@ export class LoginComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
+  /**
+   * @param store app state
+   */
   constructor(
     private store: Store<AppState>
   ) { }
@@ -39,6 +45,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /** Auth login */
   submit() {
     const credentials: Auth = { email: this.emailFormControl.value, password: this.passwordFormControl.value };
     this.store.dispatch(AuthActions.login({ credentials }));

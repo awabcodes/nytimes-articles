@@ -7,6 +7,10 @@ import { Article } from '../../models/article.model';
 import * as ArticleSelector from '../../state/article.selectors';
 import * as ArticleActions from '../../state/article.actions';
 
+
+/**
+ * Article Detail page
+ */
 @Component({
   templateUrl: './article-detail.component.html',
   styleUrls: ['./article-detail.component.scss']
@@ -16,6 +20,10 @@ export class ArticleDetailComponent implements OnInit {
   article$: Observable<Article>;
   comments$: Observable<Comment>;
 
+  /**
+   * @param activeRoute activated route for queryParams
+   * @param store app state
+   */
   constructor(
     private activeRoute: ActivatedRoute,
     private store: Store<AppState>
@@ -33,6 +41,7 @@ export class ArticleDetailComponent implements OnInit {
     this.loadComments();
   }
 
+  /** Load article comments action */
   loadComments() {
     this.store.dispatch(ArticleActions.loadArticleComments({ articleUrl: this.articleUrl }));
     this.comments$ = this.store.pipe(select(ArticleSelector.selectArticleComments));
