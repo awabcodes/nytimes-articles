@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from '../../models/menu-item.model';
+import { select, Store } from '@ngrx/store';
+import { AppState } from 'src/app/state';
+import * as AuthSelector from '../../../auth/state/auth.selectors';
+import * as AuthActions from '../../../auth/state/auth.actions';
 
 @Component({
   selector: 'app-header',
@@ -45,11 +49,49 @@ export class HeaderComponent implements OnInit {
       showOnTablet: true,
       showOnDesktop: true
     },
+    {
+      label: 'Login',
+      icon: 'login',
+      route: '/auth/login',
+      queryParam: null,
+      showOnMobile: false,
+      showOnTablet: false,
+      showOnDesktop: false
+    },
+    {
+      label: 'Register',
+      icon: 'person',
+      route: '/auth/register',
+      queryParam: null,
+      showOnMobile: false,
+      showOnTablet: false,
+      showOnDesktop: false
+    },
+    {
+      label: 'Logout',
+      icon: 'logout',
+      route: '/',
+      queryParam: null,
+      showOnMobile: false,
+      showOnTablet: false,
+      showOnDesktop: false
+    },
   ];
 
-  constructor() { }
+  isLoggedIn: boolean;
+
+  constructor(
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit(): void {
+    this.store.pipe(select(AuthSelector.selectIsLoggedIn)).subscribe({
+      next: (value) => this.isLoggedIn = value
+    });
+  }
+
+  logout() {
+    this.store.dispatch(AuthActions.logout());
   }
 
 }

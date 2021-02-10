@@ -10,8 +10,43 @@
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #dropMenu="matMenu">
-      <ng-container *ngFor="let item of menuItems">
-        <div [fxShow]="!item.showOnDesktop" [fxShow.sm]="!item.showOnTablet" [fxShow.xs]="!item.showOnMobile">
+      <ng-container *ngFor="let item of menuItems" [ngSwitch]="item.label">
+
+        <div *ngSwitchCase="'Login'">
+          <div *ngIf="!isLoggedIn" [fxShow]="!item.showOnDesktop" [fxShow.sm]="!item.showOnTablet"
+            [fxShow.xs]="!item.showOnMobile">
+            <button mat-menu-item [routerLink]="item.route" [queryParams]="item.queryParam">
+              <mat-icon color="primary" class="mr">{{item.icon}}</mat-icon>
+              {{item.label}}
+            </button>
+            <mat-divider></mat-divider>
+          </div>
+        </div>
+
+        <div *ngSwitchCase="'Register'">
+          <div *ngIf="!isLoggedIn" [fxShow]="!item.showOnDesktop" [fxShow.sm]="!item.showOnTablet"
+            [fxShow.xs]="!item.showOnMobile">
+            <button mat-menu-item [routerLink]="item.route" [queryParams]="item.queryParam">
+              <mat-icon color="primary" class="mr">{{item.icon}}</mat-icon>
+              {{item.label}}
+            </button>
+            <mat-divider></mat-divider>
+          </div>
+        </div>
+
+        <div *ngSwitchCase="'Logout'">
+          <div *ngIf="isLoggedIn" [fxShow]="!item.showOnDesktop" [fxShow.sm]="!item.showOnTablet"
+            [fxShow.xs]="!item.showOnMobile">
+            <button mat-menu-item [routerLink]="item.route" [queryParams]="item.queryParam" (click)="logout()">
+              <mat-icon color="primary" class="mr">{{item.icon}}</mat-icon>
+              {{item.label}}
+            </button>
+            <mat-divider></mat-divider>
+          </div>
+        </div>
+
+        <div *ngSwitchDefault [fxShow]="!item.showOnDesktop" [fxShow.sm]="!item.showOnTablet"
+          [fxShow.xs]="!item.showOnMobile">
           <button mat-menu-item [routerLink]="item.route" [queryParams]="item.queryParam">
             <mat-icon color="primary" class="mr">{{item.icon}}</mat-icon>
             {{item.label}}
