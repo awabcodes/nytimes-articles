@@ -12,6 +12,11 @@ git clone this [repo](https://github.com/techiediaries/fake-api-jwt-json-server.
 Go inside the repo's directory then run
 `npm install` then `npm run start-auth`
 
+## Notes
+
+The app has a proxy config inorder to work around the cors error that the NY Times Community API has,
+you can edit the config in `proxy.conf.json` file.
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
