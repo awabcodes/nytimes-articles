@@ -16,9 +16,9 @@ import { ArticleSearchResponse } from '../models/article-search.model';
 })
 export class ArticleService {
 
-  searchUrl = 'http://localhost:4200/api/search/v2/articlesearch.json'
-  topStoriesUrl = 'http://localhost:4200/api/topstories/v2/';
-  communityUrl = 'http://localhost:4200/api/community/v3/user-content/url.json';
+  searchUrl = 'https://api.nytimes.com/svc/search/v2/articlesearch.json'
+  topStoriesUrl = 'https://api.nytimes.com/svc/topstories/v2/';
+  communityUrl = 'https://api.nytimes.com/svc/community/v3/user-content/url.json';
 
   /**
    * @param http http client
