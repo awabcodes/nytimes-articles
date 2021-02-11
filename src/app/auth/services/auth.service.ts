@@ -26,7 +26,6 @@ export class AuthService {
    * @returns access token
    */
   login(credentials: Auth): Observable<AuthToken> {
-    console.log('Login');
     return this.http.post<any>(`${this.authUrl}/login`, credentials);
   }
 
@@ -36,7 +35,6 @@ export class AuthService {
    * @returns access token
    */
   register(userInfo: Auth): Observable<AuthToken> {
-    console.log('Register');
     return this.http.post<any>(`${this.authUrl}/register`, userInfo);
   }
 }

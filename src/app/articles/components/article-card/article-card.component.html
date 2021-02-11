@@ -1,4 +1,4 @@
-<mat-card matRipple>
+<mat-card matRipple *ngIf="article">
   <mat-card-header>
     <mat-card-subtitle>{{ article.published_date | date: 'medium' }}</mat-card-subtitle>
     <mat-card-title>{{ article.title }}</mat-card-title>
